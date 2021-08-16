@@ -23,9 +23,53 @@
   <button id="increment">+</button> -->
   <!-- <button id="decrement">-</button> -->
   <!-- <button id="reset">reset</button> -->
+  <form>
+    <p>
+      <label for="name">name</label>
+      <input type="text" name="name" id="name">
+    </p>
+    <p>
+      <label for="email">email</label>
+      <input type="email" name="email" id="email">
+    </p>
+    <p>
+      <label for="password">password</label>
+      <input type="password" name="password" id="password">
+    </p>
+    <button id="signIn">Sign In</button>
+  </form>
+  <div id="users"></div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
+
+    $('#signIn').click(event => {
+      event.preventDefault()
+
+      const name = $('#name').val()
+      const email = $('#email').val()
+      const password = $('#password').val()
+
+
+      const userElem = $(`
+        <div>
+          <h1>${name}</h1>
+          <h2>${email}</h2>
+          <h2>${password}</h2>
+        </div>
+      `)
+
+      $('#users').append(userElem)
+      // $('#user').html(`
+      //   <h1>${name}</h1>
+      //   <h2>${email}</h2>
+      //   <h2>${password}</h2>
+      // `)
+
+      $('#name').val('')
+      $('#email').val('')
+      $('#password').val('')
+    })
 
     // $('#submitThing').click(event => {
     //   event.preventDefault()
