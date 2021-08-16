@@ -6,6 +6,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+
+    .spongebob {
+      width: 300px;
+      height: 200px;
+    }
+
+  </style>
+  <script>
+
+    $(document).ready(function () {
+
+    })
+
+  </script>
 </head>
 
 <body>
@@ -40,7 +56,7 @@
   </form>
   <div id="users"></div> -->
 
-  <form>
+  <!-- <form>
     <p>
       <label for="title">title</label>
       <input type="text" name="title" id="title">
@@ -55,50 +71,64 @@
     </p>
     <button id="addMovie">Add Movie</button>
   </form>
-  <div id="movies"></div>
+  <div id="movies"></div> -->
+  <img id="spongebob" class="spongebob" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwallpapercave.com%2Fwp%2F7zHcRhs.jpg&f=1&nofb=1" alt="spongebob">
+
+  <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
+    $(document).ready(function () {
 
-    $('#addMovie').click(event => {
-      event.preventDefault()
-
-      const title = $('#title').val()
-      const image = $('#image').val()
-      const plot = $('#plot').val()
-
-      const movieElem = $(`
-        <div>
-          <h1>${title}</h1>
-          <img src="${image}" alt="${title}">
-          <p>${plot}</p>
-          <button class="delete">x</button>
-          <button class="watched">watched</button>
-        </div>
-      `)
-
-      $('#movies').append(movieElem)
-
-      $('#title').val('')
-      $('#image').val('')
-      $('#plot').val('')
     })
 
-    $(document).click(event => {
-      if ($(event.target).attr('class') === 'delete') {
-        $(event.target).parent().remove()
-      }
-    })
+    // ScrollReveal().reveal('#spongebob')
 
-    $(document).click(event => {
-      if ($(event.target).attr('class') === 'watched') {
-        if ($(event.target).text() === 'watched') {
-          $(event.target).text('Not watched')
-        } else {
-          $(event.target).text('watched')
-        }
-      }
-    })
+    // $('#spongebob').animate({
+    //   // height: '500px'
+    //   // opacity: '0.01'
+    //   marginTop: '300px'
+    // })
+
+    // $('#addMovie').click(event => {
+    //   event.preventDefault()
+
+    //   const title = $('#title').val()
+    //   const image = $('#image').val()
+    //   const plot = $('#plot').val()
+
+    //   const movieElem = $(`
+    //     <div>
+    //       <h1>${title}</h1>
+    //       <img src="${image}" alt="${title}">
+    //       <p>${plot}</p>
+    //       <button class="delete">x</button>
+    //       <button class="watched">watched</button>
+    //     </div>
+    //   `)
+
+    //   $('#movies').append(movieElem)
+
+    //   $('#title').val('')
+    //   $('#image').val('')
+    //   $('#plot').val('')
+    // })
+
+    // $(document).click(event => {
+    //   if ($(event.target).attr('class') === 'delete') {
+    //     $(event.target).parent().remove()
+    //   }
+    // })
+
+    // $(document).click(event => {
+    //   if ($(event.target).attr('class') === 'watched') {
+    //     if ($(event.target).text() === 'watched') {
+    //       $(event.target).text('Not watched')
+    //     } else {
+    //       $(event.target).text('watched')
+    //     }
+    //   }
+    // })
   
     // $('.delete').click(() => {
     //   console.log('hi')
