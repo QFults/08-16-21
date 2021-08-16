@@ -23,7 +23,7 @@
   <button id="increment">+</button> -->
   <!-- <button id="decrement">-</button> -->
   <!-- <button id="reset">reset</button> -->
-  <form>
+  <!-- <form>
     <p>
       <label for="name">name</label>
       <input type="text" name="name" id="name">
@@ -38,38 +38,104 @@
     </p>
     <button id="signIn">Sign In</button>
   </form>
-  <div id="users"></div>
+  <div id="users"></div> -->
+
+  <form>
+    <p>
+      <label for="title">title</label>
+      <input type="text" name="title" id="title">
+    </p>
+    <p>
+      <label for="image">image</label>
+      <input type="url" name="image" id="image">
+    </p>
+    <p>
+      <label for="plot">plot</label>
+      <textarea name="plot" id="plot" cols="30" rows="10"></textarea>
+    </p>
+    <button id="addMovie">Add Movie</button>
+  </form>
+  <div id="movies"></div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
 
-    $('#signIn').click(event => {
+    $('#addMovie').click(event => {
       event.preventDefault()
 
-      const name = $('#name').val()
-      const email = $('#email').val()
-      const password = $('#password').val()
+      const title = $('#title').val()
+      const image = $('#image').val()
+      const plot = $('#plot').val()
 
-
-      const userElem = $(`
+      const movieElem = $(`
         <div>
-          <h1>${name}</h1>
-          <h2>${email}</h2>
-          <h2>${password}</h2>
+          <h1>${title}</h1>
+          <img src="${image}" alt="${title}">
+          <p>${plot}</p>
+          <button class="delete">x</button>
+          <button class="watched">watched</button>
         </div>
       `)
 
-      $('#users').append(userElem)
-      // $('#user').html(`
-      //   <h1>${name}</h1>
-      //   <h2>${email}</h2>
-      //   <h2>${password}</h2>
-      // `)
+      $('#movies').append(movieElem)
 
-      $('#name').val('')
-      $('#email').val('')
-      $('#password').val('')
+      $('#title').val('')
+      $('#image').val('')
+      $('#plot').val('')
     })
+
+    $(document).click(event => {
+      if ($(event.target).attr('class') === 'delete') {
+        $(event.target).parent().remove()
+      }
+    })
+
+    $(document).click(event => {
+      if ($(event.target).attr('class') === 'watched') {
+        if ($(event.target).text() === 'watched') {
+          $(event.target).text('Not watched')
+        } else {
+          $(event.target).text('watched')
+        }
+      }
+    })
+  
+    // $('.delete').click(() => {
+    //   console.log('hi')
+    // })
+
+    // $(document).click(function () {
+    //   console.log($(this).attr('class'))
+    // })
+
+
+    // $('#signIn').click(event => {
+    //   event.preventDefault()
+
+    //   const name = $('#name').val()
+    //   const email = $('#email').val()
+    //   const password = $('#password').val()
+
+
+    //   const userElem = $(`
+    //     <div>
+    //       <h1>${name}</h1>
+    //       <h2>${email}</h2>
+    //       <h2>${password}</h2>
+    //     </div>
+    //   `)
+
+    //   $('#users').append(userElem)
+    //   // $('#user').html(`
+    //   //   <h1>${name}</h1>
+    //   //   <h2>${email}</h2>
+    //   //   <h2>${password}</h2>
+    //   // `)
+
+    //   $('#name').val('')
+    //   $('#email').val('')
+    //   $('#password').val('')
+    // })
 
     // $('#submitThing').click(event => {
     //   event.preventDefault()
@@ -77,7 +143,7 @@
     //   $('#disp').text(thing)
     //   $('#thing').val('')
     // })
-  
+
     // $('#disp').html('<h1>hi</h1>')
 
     // let count = 0
